@@ -66,21 +66,18 @@ export default function Header() {
       <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
     </Link>
   ))}
-<<<<<<< HEAD
-            {/* Login/Perfil Section */}
-            {user ? (
-              <div className="flex items-center space-x-2 ml-4">
-                <UserCircleIcon className="h-7 w-7 text-yellow-400" />
-                <span className="text-white text-sm font-medium">{user.nome}</span>
-                <Link href="/perfil" className="text-yellow-400 hover:text-yellow-300 text-sm font-medium px-2">Perfil</Link>
-                <button onClick={handleLogout} className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded text-xs">Sair</button>
-              </div>
-            ) : (
-              <Link href="/login" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-3 py-1 rounded text-sm font-semibold ml-4">Entrar</Link>
-            )}
-=======
->>>>>>> 7bbcdac1ab70fb1d7470c21f3c89cbdef1e1f37c
-          </nav>
+  {/* Login/Perfil Section */}
+  {user ? (
+    <div className="flex items-center space-x-2 ml-4">
+      <UserCircleIcon className="h-7 w-7 text-yellow-400" />
+      <span className="text-white text-sm font-medium">{user.nome}</span>
+      <Link href="/perfil" className="text-yellow-400 hover:text-yellow-300 text-sm font-medium px-2">Perfil</Link>
+      <button onClick={handleLogout} className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded text-xs">Sair</button>
+    </div>
+  ) : (
+    <Link href="/login" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-3 py-1 rounded text-sm font-semibold ml-4">Entrar</Link>
+  )}
+</nav>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
