@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: rgb(204, 152, 0);
+  --color-primary-dark: rgb(153, 102, 0);
+  --color-primary-light: rgb(234, 179, 8);
+  --color-bg-dark: rgb(26, 32, 44);
+  --color-bg-darker: rgb(17, 24, 39);
+  --color-text-light: rgb(255, 255, 255);
+  --color-text-dark: rgb(30, 41, 59);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+/* Animações globais */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Classes de utilidade */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+/* Personalizações de componentes */
+.fbf-btn {
+  @apply px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-md font-medium transition-all;
+}
+
+.fbf-btn-outline {
+  @apply px-4 py-2 border border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white rounded-md font-medium transition-all;
+}
+
+/* Cores de texto temáticas */
+.fbf-text-primary {
+  color: var(--color-primary);
+}
+
+.fbf-bg-primary {
+  background-color: var(--color-primary);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-yellow-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-700;
+}
