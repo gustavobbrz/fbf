@@ -106,29 +106,12 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-<<<<<<< HEAD
-                onClick={closeMobileMenu}
-=======
                 onClick={closeMobileMenu} // Fecha o menu ao clicar
->>>>>>> 7bbcdac1ab70fb1d7470c21f3c89cbdef1e1f37c
                 className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-<<<<<<< HEAD
-            {/* Login/Perfil Section Mobile */}
-            {user ? (
-              <div className="mt-2 flex flex-col space-y-1">
-                <span className="text-yellow-400 flex items-center"><UserCircleIcon className="h-6 w-6 mr-1" /> {user.nome}</span>
-                <Link href="/perfil" onClick={closeMobileMenu} className="text-yellow-400 hover:text-yellow-300 px-3 py-2 rounded-md text-base font-medium">Perfil</Link>
-                <button onClick={() => { handleLogout(); closeMobileMenu(); }} className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-base">Sair</button>
-              </div>
-            ) : (
-              <Link href="/login" onClick={closeMobileMenu} className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-3 py-2 rounded text-base font-semibold block mt-2">Entrar</Link>
-            )}
-=======
->>>>>>> 7bbcdac1ab70fb1d7470c21f3c89cbdef1e1f37c
           </div>
         </div>
       )}
