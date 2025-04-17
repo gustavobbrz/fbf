@@ -55,21 +55,17 @@ export default function Header() {
           </div>
 
           {/* Desktop Nav */}
-<<<<<<< HEAD
-          <nav className="hidden md:flex space-x-1 items-center">
-=======
-          <nav className="hidden md:flex space-x-1">
->>>>>>> 7bbcdac1ab70fb1d7470c21f3c89cbdef1e1f37c
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-white hover:text-yellow-400 relative px-3 py-2 text-sm font-medium transition-colors group"
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
-              </Link>
-            ))}
+<nav className="hidden md:flex space-x-1 items-center">
+  {navLinks.map((link) => (
+    <Link
+      key={link.href}
+      href={link.href}
+      className="text-white hover:text-yellow-400 relative px-3 py-2 text-sm font-medium transition-colors group"
+    >
+      {link.label}
+      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+    </Link>
+  ))}
 <<<<<<< HEAD
             {/* Login/Perfil Section */}
             {user ? (
