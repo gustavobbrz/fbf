@@ -5,60 +5,121 @@ Bem-vindo ao projeto oficial da FBF! Aqui você encontra tudo sobre a nossa comu
 ---
 
 ## Sobre o Projeto
-Este sistema foi criado para facilitar a organização e a participação nos campeonatos da FBF, trazendo praticidade tanto para jogadores quanto para a administração. O objetivo é oferecer uma experiência moderna, segura e intuitiva, fortalecendo a comunidade e incentivando a competitividade saudável.
+Sistema completo para organização e participação em campeonatos da FBF, focado em experiência moderna, segura e intuitiva para jogadores e administração.
 
 ---
 
-## Banco de Dados
-Este projeto utiliza **PostgreSQL** como banco de dados principal, com o ORM **Prisma** para facilitar o acesso e a modelagem dos dados.
-
-- Todas as informações de usuários, times, campeonatos e inscrições são armazenadas de forma segura no banco.
-- O Prisma permite migrações fáceis e integração direta com o backend.
+## Stack e Ferramentas Utilizadas
+- **Frontend:** [Next.js](https://nextjs.org/), [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [Axios](https://axios-http.com/)
+- **Backend:** [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [pg (PostgreSQL client)](https://node-postgres.com/), [dotenv](https://www.npmjs.com/package/dotenv), [cors](https://www.npmjs.com/package/cors)
+- **Banco de Dados:** [PostgreSQL](https://www.postgresql.org/)
+- **Deploy:** [Vercel](https://vercel.com/) (frontend), [EC2 AWS](https://aws.amazon.com/ec2/) (backend)
+- **Testes/Integração HTTPS temporária:** [ngrok](https://ngrok.com/)
 
 ---
 
-## O que você encontra aqui
+## Funcionalidades
 - **Cadastro e Login de Usuário:**
   - Crie sua conta, faça login e acesse recursos exclusivos.
-  - Após o cadastro, você já entra automaticamente e pode montar seu perfil.
+  - Após o cadastro, login automático e acesso ao perfil.
 - **Perfil Protegido:**
-  - Veja e edite seus dados de jogador. Só você acessa!
+  - Veja e edite seus dados de jogador.
 - **Inscrição de Times:**
-  - Monte seu time, escolha o capitão e inscreva-se nos campeonatos ativos.
+  - Monte seu time e inscreva-se nos campeonatos ativos.
 - **Visual Moderno:**
-  - Interface escura, responsiva e agradável, com feedbacks claros para cada ação.
+  - Interface escura, responsiva e agradável, com feedback claro para cada ação.
 - **Footer com Regulamento:**
   - Baixe o regulamento oficial da FBF direto do rodapé.
-- **Integração Total com Backend:**
-  - Toda autenticação é feita via API segura (JWT), garantindo proteção dos seus dados.
+- **Integração Frontend ↔ Backend:**
+  - Toda autenticação e cadastro via API RESTful segura (JWT).
 - **Outros Recursos:**
   - Notícias, calendário, ranking, classificação, multimídia e mais!
 
 ---
 
-## Como usar
+## Estrutura do Projeto
+- `/pages` (Next.js): páginas do frontend
+- `/components` (Next.js): componentes reutilizáveis
+- `/fbf-api` (Express): backend Node.js/Express
+
+---
+
+## Como rodar localmente
 1. **Clone o projeto:**
    ```bash
    git clone git@github.com:gustavobbrz/fbf.git
    cd fbf
    ```
-2. **Instale as dependências:**
+2. **Instale as dependências do frontend:**
    ```bash
    npm install
    ```
-3. **Configure a URL da API:**
-   - Crie um arquivo `.env.local` com:
-     ```env
-     NEXT_PUBLIC_API_URL=https://sua-api.com
-     ```
-4. **Inicie o projeto:**
+3. **Instale as dependências do backend:**
    ```bash
+   cd fbf-api
+   npm install
+   ```
+4. **Configure as variáveis de ambiente:**
+   - No frontend (`.env.local` na raiz):
+     ```env
+     NEXT_PUBLIC_API_URL=http://localhost:3000
+     ```
+   - No backend (`.env` em `/fbf-api`):
+     ```env
+     DB_USER=seu_usuario
+     DB_PASSWORD=sua_senha
+     DB_HOST=localhost
+     DB_NAME=seu_banco
+     DB_PORT=5432
+     PORT=3000
+     ```
+5. **Inicie o backend:**
+   ```bash
+   cd fbf-api
+   node server.js
+   ```
+6. **Inicie o frontend:**
+   ```bash
+   cd ..
    npm run dev
    ```
-5. **Acesse:**
+7. **Acesse:**
    - [http://localhost:3000](http://localhost:3000)
 
 ---
+
+## Deploy e Integração Produção
+- **Frontend:** Vercel (deploy automático a cada push)
+- **Backend:** EC2 AWS
+- **Variável de ambiente:**
+  - No Vercel, defina `NEXT_PUBLIC_API_URL` apontando para o backend (ex: `https://seudominio.com` ou link do ngrok para testes)
+
+---
+
+## Testando integração HTTPS (ngrok)
+Se não tiver domínio próprio, use ngrok para expor o backend com HTTPS:
+```bash
+ngrok http 3000
+```
+Use o link HTTPS gerado como valor de `NEXT_PUBLIC_API_URL` no Vercel.
+
+---
+
+## Observações
+- O backend Express diferencia `/usuarios` de `/usuarios/`. Sempre use rotas SEM barra no final.
+- Para produção, recomenda-se usar domínio próprio e HTTPS definitivo (Nginx + Let’s Encrypt).
+- O link do ngrok muda a cada reinício.
+
+---
+
+## Contribuição
+Pull requests são bem-vindos! Abra uma issue para discutir melhorias.
+
+---
+
+## Licença
+MIT
+
 
 ## Deploy rápido no Vercel
 1. Faça push do repositório para o GitHub.
