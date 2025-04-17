@@ -1,72 +1,83 @@
 # FBF - Federação Brasileira de Futsal (Haxball)
 
-Site oficial da FBF para classificação, ranking, notícias, campeonatos, inscrições e muito mais.
+Bem-vindo ao projeto oficial da FBF! Aqui você encontra tudo sobre a nossa comunidade de futsal virtual: campeonatos, rankings, notícias, inscrições e muito mais, tudo em um só lugar.
 
 ---
 
-## Principais Funcionalidades
-
-- **Cadastro e Login de Usuário**
-  - Cadastro de novos usuários com validação de senha.
-  - Login seguro utilizando JWT.
-  - Login automático após cadastro, redirecionando para o perfil.
-  - Armazenamento do token JWT no localStorage para rotas protegidas.
-  - Logout e proteção de rotas sensíveis.
-
-- **Perfil do Usuário**
-  - Página de perfil protegida, acessível apenas para usuários autenticados.
-  - Busca automática dos dados do usuário autenticado.
-
-- **Inscrição de Times**
-  - Formulário para inscrição de times em campeonatos, com seleção de jogadores e capitão.
-  - Validação de campos obrigatórios.
-
-- **Visual e Experiência**
-  - Tema escuro consistente em todas as páginas (login, cadastro, home, etc).
-  - Mensagens de erro e sucesso amigáveis.
-  - Footer atualizado: link "Regulamento" faz download direto do PDF.
-
-- **Integração Backend/API**
-  - Endpoints utilizados:
-    - `/usuarios` – cadastro de usuário
-    - `/login` – autenticação e geração de token JWT
-    - `/perfil` – dados do usuário autenticado
-  - Variável de ambiente `NEXT_PUBLIC_API_URL` para configuração da API
-
-- **Outros Recursos**
-  - Seções de campeonatos, notícias, ranking, classificação e multimídia.
-  - Componentes reutilizáveis para Header e Footer.
+## Sobre o Projeto
+Este sistema foi criado para facilitar a organização e a participação nos campeonatos da FBF, trazendo praticidade tanto para jogadores quanto para a administração. O objetivo é oferecer uma experiência moderna, segura e intuitiva, fortalecendo a comunidade e incentivando a competitividade saudável.
 
 ---
 
-## Como rodar localmente
-```bash
-npm install
-npm run dev
-```
-Acesse: http://localhost:3000
+## Banco de Dados
+Este projeto utiliza **PostgreSQL** como banco de dados principal, com o ORM **Prisma** para facilitar o acesso e a modelagem dos dados.
 
-## Deploy (Vercel)
-1. Faça push do projeto para o GitHub.
-2. Crie um novo projeto no Vercel e conecte ao repositório.
-3. Configure a variável de ambiente `NEXT_PUBLIC_API_URL` no painel do Vercel.
-4. O deploy será feito automaticamente a cada novo push.
+- Todas as informações de usuários, times, campeonatos e inscrições são armazenadas de forma segura no banco.
+- O Prisma permite migrações fáceis e integração direta com o backend.
 
 ---
 
-## Resumo do Fluxo do Usuário
-1. O usuário acessa a tela de cadastro, preenche os dados e cria a conta.
-2. Após cadastro, o sistema faz login automaticamente e redireciona para o perfil.
-3. Usuários autenticados podem acessar funcionalidades exclusivas, como inscrição de times.
-4. O usuário pode sair a qualquer momento usando o botão de logout.
+## O que você encontra aqui
+- **Cadastro e Login de Usuário:**
+  - Crie sua conta, faça login e acesse recursos exclusivos.
+  - Após o cadastro, você já entra automaticamente e pode montar seu perfil.
+- **Perfil Protegido:**
+  - Veja e edite seus dados de jogador. Só você acessa!
+- **Inscrição de Times:**
+  - Monte seu time, escolha o capitão e inscreva-se nos campeonatos ativos.
+- **Visual Moderno:**
+  - Interface escura, responsiva e agradável, com feedbacks claros para cada ação.
+- **Footer com Regulamento:**
+  - Baixe o regulamento oficial da FBF direto do rodapé.
+- **Integração Total com Backend:**
+  - Toda autenticação é feita via API segura (JWT), garantindo proteção dos seus dados.
+- **Outros Recursos:**
+  - Notícias, calendário, ranking, classificação, multimídia e mais!
 
 ---
 
-## Segurança
-- Senhas nunca são armazenadas em texto puro.
-- JWT utilizado para autenticação e proteção de rotas.
-- Dados sensíveis protegidos por autenticação no backend.
+## Como usar
+1. **Clone o projeto:**
+   ```bash
+   git clone git@github.com:gustavobbrz/fbf.git
+   cd fbf
+   ```
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+3. **Configure a URL da API:**
+   - Crie um arquivo `.env.local` com:
+     ```env
+     NEXT_PUBLIC_API_URL=https://sua-api.com
+     ```
+4. **Inicie o projeto:**
+   ```bash
+   npm run dev
+   ```
+5. **Acesse:**
+   - [http://localhost:3000](http://localhost:3000)
 
 ---
 
-Desenvolvido para a comunidade FBF Haxball.
+## Deploy rápido no Vercel
+1. Faça push do repositório para o GitHub.
+2. No Vercel, crie um novo projeto e conecte ao seu repositório.
+3. Adicione a variável de ambiente `NEXT_PUBLIC_API_URL`.
+4. Pronto! Cada novo push já gera um deploy automático.
+
+---
+
+## Segurança & Boas Práticas
+- Nenhuma senha é salva em texto puro.
+- JWT protege todas as rotas sensíveis.
+- Dados pessoais só podem ser acessados por quem estiver logado.
+
+---
+
+## Agradecimento
+Esse sistema é feito de fã para fã, pensando em quem vive e respira FBF. Sinta-se à vontade para sugerir melhorias, reportar bugs ou contribuir. Juntos, vamos fazer a comunidade crescer ainda mais!
+
+---
+
+Feito com carinho para a comunidade FBF Haxball ⚽
